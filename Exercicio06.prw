@@ -15,7 +15,7 @@ User Function SQL_06()
 
     cPesquisa := FwInputBox("Digite o código a ser pesquisado:", cPesquisa)
 
-    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " WHERE B1_COD = '" + cPesquisa + "'"
+    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " WHERE B1_COD = '" + cPesquisa + "' AND D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
     &(cAlias)->(DbGoTop())

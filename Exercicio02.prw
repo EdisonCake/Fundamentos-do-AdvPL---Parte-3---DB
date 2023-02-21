@@ -12,7 +12,7 @@ User Function SQL_02()
 
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SC5' MODULO 'COM'
 
-    cQuery := "SELECT PD.C5_NUM, PD.C5_CLIENT, CL.A1_NOME FROM " + RetSqlName('SC5') + " PD INNER JOIN " + RetSqlName('SA1') + " CL ON PD.C5_CLIENT = CL.A1_COD WHERE C5_NOTA = ' '"
+    cQuery := "SELECT PD.C5_NUM, PD.C5_CLIENT, CL.A1_NOME FROM " + RetSqlName('SC5') + " PD INNER JOIN " + RetSqlName('SA1') + " CL ON PD.C5_CLIENT = CL.A1_COD WHERE C5_NOTA = ' ' AND PD.D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
 

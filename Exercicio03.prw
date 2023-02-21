@@ -12,7 +12,7 @@ User Function SQL_03()
 
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SC5' MODULO 'FAT'
 
-    cQuery := "SELECT PV.C5_NUM, PDV.C6_PRODUTO, PDV.C6_DESCRI, PDV.C6_QTDVEN, PDV.C6_PRCVEN, PDV.C6_VALOR FROM " + RetSqlName('SC5') + " PV INNER JOIN " + RetSqlName('SC6') + " PDV ON PV.C5_NUM = PDV.C6_NUM WHERE C5_NUM = 'PV0008'"
+    cQuery := "SELECT PV.C5_NUM, PDV.C6_PRODUTO, PDV.C6_DESCRI, PDV.C6_QTDVEN, PDV.C6_PRCVEN, PDV.C6_VALOR FROM " + RetSqlName('SC5') + " PV INNER JOIN " + RetSqlName('SC6') + " PDV ON PV.C5_NUM = PDV.C6_NUM WHERE C5_NUM = 'PV0008' AND PV.D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
 
@@ -21,10 +21,10 @@ User Function SQL_03()
     While &(cAlias)->(!EOF())
 
         cDesc += "Código: " + &(cAlias)->(C6_PRODUTO) +;
-                 " / Descrição: " + cvaltochar(&(cAlias)->(C6_DESCRI)) +;
-                 " / QTD.: " + cvaltochar(&(cAlias)->(C6_QTDVEN)) +;
-                 " / Vl.Unit R$ " + cvaltochar(&(cAlias)->(C6_PRCVEN)) +;
-                 " / Vl.Total R$ " + cvaltochar(&(cAlias)->(C6_VALOR)) + CRLF + CRLF
+                 " // Descrição: " + cvaltochar(&(cAlias)->(C6_DESCRI)) +;
+                 " // QTD.: " + cvaltochar(&(cAlias)->(C6_QTDVEN)) +;
+                 " // Vl.Unit R$ " + cvaltochar(&(cAlias)->(C6_PRCVEN)) +;
+                 " // Vl.Total R$ " + cvaltochar(&(cAlias)->(C6_VALOR)) + CRLF + CRLF
         &(cAlias)->(DbSkip())
     End
 

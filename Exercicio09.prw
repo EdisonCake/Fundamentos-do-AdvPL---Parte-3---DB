@@ -13,16 +13,22 @@ User Function SQL_09()
 
     cPesquisa := FwInputBox("Digite o código a ser pesquisado:", cPesquisa)
 
-    cQuery := "SELECT PED.C5_NUM, PROD.C6_PRODUTO FROM " + RetSqlName('SC6') + " PROD INNER JOIN " + RetSqlName('SC5') + " PED ON PROD.C6_NUM = PED.C5_NUM WHERE PROD.C6_PRODUTO = '" + cPesquisa + "'"
+    cQuery := "SELECT PED.C5_NUM, PROD.C6_PRODUTO FROM " + RetSqlName('SC6') + " PROD INNER JOIN " + RetSqlName('SC5') + " PED ON PROD.C6_NUM = PED.C5_NUM WHERE PROD.C6_PRODUTO = '" + cPesquisa + "' AND PROD.D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
     &(cAlias)->(DbGoTop())
 
     While &(cAlias)->(!EOF())
 
-        cDesc += alltrim(&(cAlias)->(C5_NUM)) + ", "
+        cDesc += alltrim(&(cAlias)->(C5_NUM))
 
-        &(cAlias)->(DbSkip())
+            if &(cAlias)->(!EOF())
+                cDesc += ", "
+                &(cAlias)->(DbSkip())
+            else
+                cDesc += "."
+                &(cAlias)->(DbSkip)
+            endif
     End
 
     FwAlertInfo("O produto pesquisado se encontra nos pedidos:" + CRLF +;

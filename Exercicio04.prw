@@ -13,7 +13,7 @@ User Function SQL_04()
     
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SB1' MODULO 'COM'
 
-    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " WHERE B1_GRUPO = 'G002'"
+    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " WHERE B1_GRUPO = 'G002' AND D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
 

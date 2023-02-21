@@ -12,7 +12,7 @@ User Function SQL_05()
     
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SB1' MODULO 'COM'
 
-    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " ORDER BY B1_DESC DESC"
+    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " WHERE D_E_L_E_T_ = ' ' ORDER BY B1_DESC DESC"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
 

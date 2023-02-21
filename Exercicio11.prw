@@ -14,7 +14,7 @@ User Function SQL_11()
 
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SA2' MODULO 'COM'
 
-    cQuery := "SELECT * FROM " + RetSqlName('SA2') + " WHERE A2_EST = 'SP'"
+    cQuery := "SELECT * FROM " + RetSqlName('SA2') + " WHERE A2_EST = 'SP' AND D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
     &(cAlias)->(DbGoTop())

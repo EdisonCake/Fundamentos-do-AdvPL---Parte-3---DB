@@ -10,7 +10,7 @@ User Function SQL_08()
     
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SC5' MODULO 'COM'
 
-    cQuery := "SELECT TOP 1 C6_NUM, C6_DESCRI, C6_PRODUTO, C6_VALOR FROM " + RetSqlName('SC6') + " ORDER BY C6_VALOR DESC"
+    cQuery := "SELECT TOP 1 C6_NUM, C6_DESCRI, C6_PRODUTO, C6_VALOR FROM " + RetSqlName('SC6') + " WHERE D_E_L_E_T_ = ' ' ORDER BY C6_VALOR DESC"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
     &(cAlias)->(DbGoTop())

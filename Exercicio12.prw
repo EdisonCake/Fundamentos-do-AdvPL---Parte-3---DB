@@ -11,7 +11,7 @@ User Function SQL_12()
 
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SB1' MODULO 'COM'
 
-    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " ORDER BY B1_PRV1"
+    cQuery := "SELECT * FROM " + RetSqlName('SB1') + " WHERE D_E_L_E_T_ = ' ' ORDER BY B1_PRV1"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
     &(cAlias)->(DbGoTop())

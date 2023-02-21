@@ -17,7 +17,7 @@ User Function SQL_01()
 
     PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SC7' MODULO 'COM'
 
-    cQuery := "SELECT * FROM " + RetSqlName('SC7') + " WHERE C7_FORNECE = 'F00004' GROUP BY C7_NUM"
+    cQuery := "SELECT DISTINCT C7_NUM FROM " + RetSqlName('SC7') + " WHERE C7_FORNECE = 'F00004' AND D_E_L_E_T_ = ' '"
 
     TCQUERY cQuery ALIAS &(cAlias) NEW
 
