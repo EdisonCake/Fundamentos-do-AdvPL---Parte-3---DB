@@ -1,31 +1,20 @@
 #INCLUDE 'TOTVS.CH'
-#INCLUDE 'TBICONN.CH'
-#INCLUDE 'parmtype.ch'
-#INCLUDE 'TOPCONN.CH'
 
 User Function ZZGRP()
-    local aArea   := GetArea()
+    local cMsg := ""
 
-    PREPARE ENVIRONMENT EMPRESA '99' FILIAL '01' TABLES 'SB1' MODULO 'COM'
+    if M->B1_TIPO == "PA"
 
-    DbSelectArea('SB1')
-    DbSetOrder(1)
-    // DbSeek(xFilial('SB1') + '1')
+        cMsg := "PRODUTO PARA COMERCIALIZACAO"
 
-    if SB1->(B1_TIPO) == "PA"
+    elseif M->B1_TIPO == "MP"
 
-        SB1->(B1_ZZGRP) := "PRODUTO PARA COMERCIALIZACAO"
-
-    elseif SB1->(B1_TIPO) == "MP"
-
-        SB1->(B1_ZZGRP) := "MATERIA PRIMA PRODUCAO"
+        cMsg := "MATERIA PRIMA PRODUCAO"
         
     else    
 
-        SB1->(B1_ZZGRP) := "OUTROS PRODUTOS"
+        cMsg := "OUTROS PRODUTOS"
+
     endif
 
-    DbCloseArea()
-    RestArea(aArea)
-
-Return 
+Return cMsg
