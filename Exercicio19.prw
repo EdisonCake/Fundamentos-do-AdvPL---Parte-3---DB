@@ -1,6 +1,7 @@
 #INCLUDE 'TOTVS.CH'
 
 User Function ContaLetra()
+    // Declaração de variáveis.
     local cFrase    := ""
     local nCount    := 0
     local nA        := 0
@@ -10,8 +11,10 @@ User Function ContaLetra()
     local nU        := 0
     local nSpace    := 0
 
+    // Aqui é solicitado ao usuário uma frase, e a variável já recebe a frase digitada em letras maiúsculas.
     cFrase := upper(FwInputBox("Digite uma frase: ", cFrase))
 
+    // É realizado uma verificação de cada letra e cada informação é acrescida na variável referente.
     For nCount := 1 to len(cFrase)
         do case
             case substr(cFrase, nCount, 1) == "A"
@@ -29,6 +32,7 @@ User Function ContaLetra()
         end case
     Next
 
+    // Por fim, é exibido ao usuário as informações anteriormente acrescidas.
     FwAlertInfo("Na frase " + cFrase + " existem: " + CRLF + CRLF +;
                 cvaltochar(nA) + " letras A;" + CRLF +;
                 cvaltochar(nE) + " letras E;" + CRLF +;
