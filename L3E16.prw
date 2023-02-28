@@ -28,7 +28,9 @@ User Function DeTras()
         lNome := MsgYesNo(cInverte + CRLF + "Deseja fazer com outro nome?", "Nome invertido")
         
         // Se sim, as variáveis anteriores são redefinidas e o programa é executado novamente.
-        cInverte := ""
-        cNome := ""
+        cInverte := " "
+        cNome := " "
+        aNome := {}
+        
     End while
 Return 

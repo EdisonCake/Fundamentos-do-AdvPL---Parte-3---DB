@@ -18,7 +18,7 @@ User Function SQL_10()
     // Aqui é solicitado ao usuário qual o produto a ser pesquisado.
     cPesquisa := FwInputBox("Digite o produto a ser pesquisado: ")
 
-    // Aqui a informação do usuário ´einclusa na pesquisa a ser realizada no banco de dados.
+    // Aqui a informação do usuário é inclusa na pesquisa a ser realizada no banco de dados.
     cQuery := "SELECT * FROM " + RetSqlName('SB1') + " PROD INNER JOIN " + RetSqlName('SC6') + " PEDV ON PROD.B1_COD = PEDV.C6_PRODUTO WHERE PROD.B1_COD = '" + cPesquisa + "' AND PROD.D_E_L_E_T_ = ' '"  
     
     // Aqui, a pesquisa é feita, e o ponteiro posicionado no topo da tabela.

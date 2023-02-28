@@ -29,6 +29,7 @@ User Function SQL_01()
     // Enquanto o meu ponteiro não chegar no final da tabela, é concatenado em uma variável de texto as informações adquiridas da tabela.
     While &(cAlias)->(!EOF())
         cDesc += "Pedido " + cvaltochar(strzero(nCount, 2)) + ": " + &(cAlias)->(C7_NUM) + CRLF
+        nCount++
         &(cAlias)->(DbSkip())
     End
 

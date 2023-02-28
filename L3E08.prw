@@ -18,15 +18,12 @@ User Function SQL_08()
     // Aqui a consulta é feita e o ponteiro posicionado no início da tabela.
     TCQUERY cQuery ALIAS &(cAlias) NEW
     &(cAlias)->(DbGoTop())
-
-    // Enquanto o ponteiro não chegar no final, é feito o registro na variável correspondente.
-    While &(cAlias)->(!EOF())
-        cDesc += "Pedido: " + &(cAlias)->(C6_NUM) + CRLF +;
-                 "Código do Produto: " + &(cAlias)->(C6_DESCRI) + CRLF +;
-                 "Descrição: " + &(cAlias)->(C6_PRODUTO) + CRLF +;
-                 "Valor Total: R$ " + cvaltochar(&(cAlias)->(C6_VALOR))
-        &(cAlias)->(DbSkip())
-    End
+    
+    // O ponteiro já foi posicionado no primeiro (e único registro) então a informação é registrada na variável.
+    cDesc += "Pedido: " + &(cAlias)->(C6_NUM) + CRLF +;
+             "Descrição: " + &(cAlias)->(C6_DESCRI) + CRLF +;
+             "Código do Prodtuto: " + &(cAlias)->(C6_PRODUTO) + CRLF +;
+             "Valor Total: R$ " + cvaltochar(&(cAlias)->(C6_VALOR))
 
     // Por fim, é exibido ao usuário a informação do maior valor solicitado pelo usuário.
     FwAlertInfo(cDesc, "Maior Valor")
